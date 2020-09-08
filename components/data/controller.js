@@ -12,7 +12,12 @@ async function getData() {
     return store.getData()
 }
 
+async function editUser(id, data) {
+    return store.editUser(id, data)
+}
+
 module.exports = {
     createData,
     getData,
+    editUser,
 }

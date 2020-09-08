@@ -21,4 +21,12 @@ router.get('/', (req, res) => {
     })
 })
 
+router.patch('/:id', (req, res) => {
+    controller.editUser(req.params.id, req.body).then(data => {
+        response.success(req, res, data, 200)
+    }).catch(err => {
+        response.error(req, res, err.message || 'error', err.status || 500)
+    })
+})
+
 module.exports = router

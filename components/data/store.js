@@ -16,7 +16,19 @@ function getData() {
     })
 }
 
+function editUser(id, data) {
+    return new Promise((resolve, reject) => {
+        Data.findByIdAndUpdate(id, data, { new: true }).exec((err, data) => {
+            if (err) {
+                reject({ status: 500, message: 'Ocurrio un errro Actualizando el usuario' })
+            }
+            resolve(data)
+        })
+    })
+}
+
 module.exports = {
     crateDate,
-    getData
+    getData,
+    editUser
 }
