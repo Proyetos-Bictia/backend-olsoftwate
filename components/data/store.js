@@ -27,8 +27,20 @@ function editUser(id, data) {
     })
 }
 
+function delteUser(id) {
+    return new Promise((resolve, reject) => {
+        Data.findByIdAndDelete(id).exec((err, data) => {
+            if (err) {
+                reject({ status: 500, message: 'Ocurrio un errro Actualizando el usuario' })
+            }
+            resolve(id)
+        })
+    })
+}
+
 module.exports = {
     crateDate,
     getData,
-    editUser
+    editUser,
+    delteUser,
 }

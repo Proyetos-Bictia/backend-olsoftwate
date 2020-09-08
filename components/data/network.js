@@ -29,4 +29,12 @@ router.patch('/:id', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    controller.deleteUser(req.params.id).then(data => {
+        response.success(req, res, data, 200)
+    }).catch(err => {
+        response.error(req, res, err.message || 'error', err.status || 500)
+    })
+})
+
 module.exports = router

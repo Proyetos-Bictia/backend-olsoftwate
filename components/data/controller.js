@@ -16,8 +16,13 @@ async function editUser(id, data) {
     return store.editUser(id, data)
 }
 
+async function deleteUser(id) {
+    return store.delteUser(id)
+}
+
 module.exports = {
     createData,
     getData,
     editUser,
+    deleteUser
 }
